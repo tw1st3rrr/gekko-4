@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideProgress {
+  from { width: 0% }
+  to   { width: 100% }
+}
+
+/* ─── shadcn CSS variables (light) ──────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 71% 45%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 38 14% 10%;
+    --foreground: 40 20% 92%;
+    --card: 38 14% 13%;
+    --card-foreground: 40 20% 92%;
+    --popover: 38 14% 10%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 20 51% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 38 12% 17%;
+    --secondary-foreground: 40 20% 92%;
+    --muted: 38 12% 17%;
+    --muted-foreground: 40 10% 60%;
+    --accent: 38 12% 17%;
+    --accent-foreground: 40 20% 92%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 12% 20%;
+    --input: 38 12% 20%;
+    --ring: 20 51% 53%;
+  }
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── glass3d.dev variables ──────────────────────────────────────── */
+:root {
+  --neutral-h: 205;
+  --neutral-s: 20%;
+  --neutral-90: var(--neutral-h) var(--neutral-s) 90%;
+  --neutral-95: var(--neutral-h) var(--neutral-s) 95%;
+  --neutral-10: var(--neutral-h) var(--neutral-s) 10%;
+
+  --highlight: var(--neutral-90);
+  --shadow:    var(--neutral-10);
+
+  /* noise texture from glass3d.dev */
+  --noise-gray: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+
+  /* blur / brightness / saturation */
+  --blur:   14px;
+  --bright: 1.05;
+  --satu:   1.4;
+
+  /* bevel box-shadows */
+  --bevel-sm:
+    inset 1.5px 1.5px 0.75px -2.75px hsl(var(--highlight) / 0.9),
+    inset 2px   2px   1px    -3px    hsl(var(--highlight) / 0.7),
+    inset 0.5px 0.5px 0.5px  -0.25px hsl(var(--highlight) / 0.1),
+    inset 0.5px 0.5px 0.25px          hsl(var(--highlight) / 0.05),
+    inset 0     0     0.25px  0.25px  hsl(var(--highlight) / 0.03);
+
+  --bevel-md:
+    inset 2px 2px 1px   -3px    hsl(var(--highlight) / 0.8),
+    inset 2px 2px 1px   -3px    hsl(var(--highlight) / 0.5),
+    inset 1px 1px 1px   -0.5px  hsl(var(--highlight) / 0.15),
+    inset 1px 1px 0.25px        hsl(var(--highlight) / 0.03),
+    inset 0   0   0.25px 0.5px  hsl(var(--highlight) / 0.03);
+}
+
+/* ─── .glass-3d (rounded elements, e.g. buttons/cards) ────────────── */
+.glass-3d {
+  position: relative;
+  z-index: 4;
+}
+.glass-3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 5;
+  box-shadow: var(--bevel-md);
+}
+.glass-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 3;
+  background-repeat: repeat;
+  background-size: 40px;
+  background-image: var(--noise-gray);
+  -webkit-backdrop-filter: blur(var(--blur)) brightness(var(--bright)) saturate(var(--satu));
+  backdrop-filter: blur(var(--blur)) brightness(var(--bright)) saturate(var(--satu));
+}
+.glass-3d > * {
+  position: relative;
+  z-index: 6;
+}
+
+/* ─── .glass-3d-sm (smaller elements) ────────────────────────────── */
+.glass-3d-sm {
+  position: relative;
+  z-index: 4;
+}
+.glass-3d-sm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 5;
+  box-shadow: var(--bevel-sm);
+}
+.glass-3d-sm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 3;
+  background-repeat: repeat;
+  background-size: 25px;
+  background-image: var(--noise-gray);
+  -webkit-backdrop-filter: blur(var(--blur)) brightness(var(--bright)) saturate(var(--satu));
+  backdrop-filter: blur(var(--blur)) brightness(var(--bright)) saturate(var(--satu));
+}
+.glass-3d-sm > * {
+  position: relative;
+  z-index: 6;
+}
