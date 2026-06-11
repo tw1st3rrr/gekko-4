@@ -1,9 +1,21 @@
-// src/components/sections/GiftSection.tsx
+import { Gift, Camera, Repeat } from 'lucide-react'
 
 const BULLETS = [
-  { emoji: '🎁', title: 'Готовая упаковка', desc: 'Набор приходит в подарочной коробке — ничего дополнительно покупать не нужно' },
-  { emoji: '📸', title: 'Персональное фото', desc: 'Картина из фото именинника, пары, питомца — подарок, которого точно нет у других' },
-  { emoji: '♾️', title: 'Пересобирай сколько угодно', desc: 'Скачивай новые схемы бесплатно и собирай разные картины из одного набора' },
+  {
+    icon: <Gift className="w-6 h-6 text-white" />,
+    title: 'Готовая упаковка',
+    desc: 'Набор приходит в подарочной коробке — ничего дополнительно покупать не нужно',
+  },
+  {
+    icon: <Camera className="w-6 h-6 text-white" />,
+    title: 'Персональное фото',
+    desc: 'Картина из фото именинника, пары, питомца — подарок, которого точно нет у других',
+  },
+  {
+    icon: <Repeat className="w-6 h-6 text-white" />,
+    title: 'Пересобирай сколько угодно',
+    desc: 'Скачивай новые схемы бесплатно и собирай разные картины из одного набора',
+  },
 ]
 
 export function GiftSection() {
@@ -35,8 +47,8 @@ export function GiftSection() {
           <div className="flex flex-col gap-6">
             {BULLETS.map((b, i) => (
               <div key={i} className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 dark:bg-white/15 flex items-center justify-center text-2xl shrink-0">
-                  {b.emoji}
+                <div className="w-12 h-12 rounded-2xl bg-white/10 dark:bg-white/15 flex items-center justify-center shrink-0">
+                  {b.icon}
                 </div>
                 <div>
                   <div className="text-white font-bold text-base mb-1">{b.title}</div>

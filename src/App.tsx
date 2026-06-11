@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import {
   Twitter, Instagram, Linkedin, MessageCircle,
-  Phone, Mail, Clock, ArrowRight,
+  Phone, Mail, Clock, ArrowRight, Check,
   Sun, Moon,
 } from 'lucide-react'
 import { Footerdemo } from '@/components/ui/footer-section'
@@ -422,11 +422,39 @@ export default function App() {
         mediaSrc="/hero.mp4"
         bgVideoSrc={VIDEO_URL}
         title="ГЕККО АРТ"
-        date="PIXEL ART CONSTRUCTOR"
         scrollToExpand="Прокрути, чтобы открыть ↓"
-      >
-        <HowItWorksSection />
-      </ScrollExpandMedia>
+        heroContent={
+          <div className="w-full flex items-end justify-between gap-4 px-8 sm:px-12 pb-10 sm:pb-16 flex-wrap">
+            <div className="max-w-xs">
+              <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-2">
+                Пиксельный конструктор
+              </p>
+              <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3 drop-shadow-xl">
+                Конструктор<br />с почти<br />безграничными<br />возможностями
+              </h1>
+              <p className="text-white/50 text-sm leading-relaxed max-w-[260px]">
+                Загрузи любое фото — получи уникальный пиксельный набор для сборки
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 shrink-0">
+              <a
+                href={PIXELATOR}
+                className="inline-flex items-center gap-2 bg-white text-[#3d3929] font-bold text-sm px-5 py-3 rounded-xl hover:bg-white/90 transition-colors shadow-lg whitespace-nowrap"
+              >
+                Стандартный набор <ArrowRight size={13} />
+              </a>
+              <a
+                href={PIXELATOR}
+                className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold text-sm px-5 py-3 rounded-xl hover:border-white/80 hover:bg-white/10 transition-all whitespace-nowrap"
+              >
+                Индивидуальный проект <ArrowRight size={13} />
+              </a>
+            </div>
+          </div>
+        }
+      />
+
+      <HowItWorksSection />
 
       {/* ════════════════════════════════════════════════
           CONTENT SECTIONS
@@ -449,7 +477,7 @@ export default function App() {
 
             {/* Left: intro */}
             <div>
-              <h2 className="text-3xl font-black text-gray-900 dark:text-[#f0ede6] mb-4">Напишите нам! 👋</h2>
+              <h2 className="text-3xl font-black text-gray-900 dark:text-[#f0ede6] mb-4">Напишите нам!</h2>
               <p className="text-gray-500 dark:text-[#f0ede6]/60 text-base leading-relaxed mb-8 max-w-sm">
                 Расскажите о вашем проекте — ответим в течение 24 часов и подберём лучший вариант набора.
               </p>
@@ -480,7 +508,7 @@ export default function App() {
             <div>
               {sent ? (
                 <div className="flex flex-col items-center py-16 gap-3">
-                  <div className="w-12 h-12 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-xl">✓</div>
+                  <div className="w-12 h-12 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center"><Check size={22} className="text-green-600" /></div>
                   <p className="text-base font-semibold text-gray-900 dark:text-[#f0ede6]">Отправлено!</p>
                   <p className="text-sm text-gray-500 dark:text-[#f0ede6]/60">Ответим в течение 24 часов.</p>
                 </div>

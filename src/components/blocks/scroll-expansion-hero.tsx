@@ -16,6 +16,7 @@ interface ScrollExpandMediaProps {
   date?: string
   scrollToExpand?: string
   textBlend?: boolean
+  heroContent?: ReactNode
   children?: ReactNode
 }
 
@@ -29,6 +30,7 @@ export function ScrollExpandMedia({
   date,
   scrollToExpand,
   textBlend,
+  heroContent,
   children,
 }: ScrollExpandMediaProps) {
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -207,6 +209,16 @@ export function ScrollExpandMedia({
                   )}
                 </div>
               </div>
+
+              {/* Hero overlay — fades as video expands */}
+              {heroContent && (
+                <div
+                  className="absolute bottom-0 left-0 right-0 z-10"
+                  style={{ opacity: Math.max(0, 1 - scrollProgress * 2.5), transition: 'opacity 0.1s' }}
+                >
+                  {heroContent}
+                </div>
+              )}
 
               {/* Split title */}
               <div
