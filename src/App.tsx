@@ -374,7 +374,7 @@ export default function App() {
             <img
               src={LOGO_BLACK_URL}
               alt="ГЕККО ТОЙС"
-              className="h-8 w-auto dark:invert"
+              className="h-8 w-auto"
               onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
             />
           </a>
@@ -406,7 +406,7 @@ export default function App() {
                 : <Moon size={16} className="text-white" />}
             </button>
             <a href={PIXELATOR}>
-              <LiquidButton size="sm" className="text-white font-semibold whitespace-nowrap rounded-xl">
+              <LiquidButton size="sm" className="bg-[#3d3929] hover:bg-[#2d2a1f] text-white font-semibold whitespace-nowrap rounded-xl">
                 Начать проект
               </LiquidButton>
             </a>

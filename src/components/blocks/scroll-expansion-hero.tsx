@@ -108,6 +108,11 @@ export function ScrollExpandMedia({
     return () => window.removeEventListener('resize', check)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflowY = mediaFullyExpanded ? '' : 'hidden'
+    return () => { document.body.style.overflowY = '' }
+  }, [mediaFullyExpanded])
+
   const mediaWidth  = 300 + scrollProgress * (isMobile ? 650 : 1250)
   const mediaHeight = 400 + scrollProgress * (isMobile ? 200 : 400)
   const textShift   = scrollProgress * (isMobile ? 180 : 150)
@@ -117,8 +122,8 @@ export function ScrollExpandMedia({
 
   return (
     <div ref={sectionRef} className="overflow-x-hidden">
-      <section className="relative flex flex-col items-center justify-start min-h-[80dvh]">
-        <div className="relative w-full flex flex-col items-center min-h-[80dvh]">
+      <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
+        <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
 
           {/* Fading background */}
           <motion.div
@@ -131,20 +136,20 @@ export function ScrollExpandMedia({
               <video
                 src={bgVideoSrc}
                 autoPlay muted loop playsInline
-                className="w-screen h-screen object-cover object-center"
+                className="w-full h-full object-cover object-center"
               />
             ) : bgImageSrc ? (
               <img
                 src={bgImageSrc}
                 alt=""
-                className="w-screen h-screen object-cover object-center"
+                className="w-full h-full object-cover object-center"
               />
             ) : null}
             <div className="absolute inset-0 bg-black/40" />
           </motion.div>
 
           <div className="container mx-auto flex flex-col items-center justify-start relative z-10">
-            <div className="flex flex-col items-center justify-center w-full h-[80dvh] relative">
+            <div className="flex flex-col items-center justify-center w-full h-[100dvh] relative">
 
               {/* Expanding media */}
               <div
@@ -153,7 +158,7 @@ export function ScrollExpandMedia({
                   width: `${mediaWidth}px`,
                   height: `${mediaHeight}px`,
                   maxWidth: '95vw',
-                  maxHeight: '70vh',
+                  maxHeight: '85vh',
                   boxShadow: '0 0 60px rgba(0,0,0,0.4)',
                 }}
               >
