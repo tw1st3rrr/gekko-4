@@ -12,6 +12,7 @@ import {
 import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import { ScrollExpandMedia } from '@/components/blocks/scroll-expansion-hero'
 import { HowItWorksSection }      from '@/components/sections/HowItWorksSection'
+import { Starfield } from '@/components/ui/starfield'
 
 import { PriceCalculatorSection } from '@/components/sections/PriceCalculatorSection'
 import { GiftSection }            from '@/components/sections/GiftSection'
@@ -195,7 +196,7 @@ function CatalogSection() {
     <HoverSlider
       activeSlide={activeSlide}
       onChangeSlide={handleLeftSelect}
-      className="px-6 sm:px-10 py-20 sm:py-28 dark:bg-[#1c1a15]"
+      className="px-6 sm:px-10 py-20 sm:py-28"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -326,6 +327,9 @@ export default function App() {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
+  const postHeroRef = useRef<HTMLDivElement>(null)
+  const [starMousePos, setStarMousePos] = useState<{ x: number | null; y: number | null }>({ x: null, y: null })
+
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') === 'dark' ||
@@ -454,12 +458,17 @@ export default function App() {
         }
       />
 
-      <HowItWorksSection />
-
       {/* ════════════════════════════════════════════════
-          CONTENT SECTIONS
+          POST-HERO — shared starfield background
       ════════════════════════════════════════════════ */}
-      <div className="relative z-10 bg-[#faf9f5] dark:bg-[#1c1a15]">
+      <div
+        ref={postHeroRef}
+        className="relative z-10 bg-[#faf9f5] dark:bg-[#1c1a15] overflow-hidden"
+        onMouseMove={e => setStarMousePos({ x: e.clientX, y: e.clientY })}
+        onMouseLeave={() => setStarMousePos({ x: null, y: null })}
+      >
+        <Starfield count={200} mousePos={starMousePos} containerRef={postHeroRef} />
+        <HowItWorksSection />
 
         <PriceCalculatorSection />
 
@@ -472,7 +481,7 @@ export default function App() {
         {/* ════════════════════════════════════════════════
             CONTACT FORM SECTION
         ════════════════════════════════════════════════ */}
-        <section className="bg-white dark:bg-[#242018] px-6 sm:px-10 py-20">
+        <section id="contacts" className="bg-white dark:bg-[#242018] px-6 sm:px-10 py-20">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-14 items-start">
 
             {/* Left: intro */}

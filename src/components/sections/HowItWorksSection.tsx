@@ -26,7 +26,7 @@ const STEPS = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-[#faf9f5] dark:bg-[#1c1a15] px-6 sm:px-10 py-14 sm:py-20">
+    <section id="how-it-works" className="relative px-6 sm:px-10 py-14 sm:py-20">
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-3">
           / как это работает

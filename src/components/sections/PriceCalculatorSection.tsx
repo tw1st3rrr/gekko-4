@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, createContext, useContext } from 'react'
-import { motion, useSpring } from 'motion/react'
+import { motion } from 'motion/react'
 import { Check, Star as LucideStar } from 'lucide-react'
 import NumberFlow from '@number-flow/react'
 import confetti from 'canvas-confetti'
@@ -70,53 +70,6 @@ const PricingCtx = createContext<{ isReady: boolean; setIsReady: (v: boolean) =>
   isReady: true,
   setIsReady: () => {},
 })
-
-// ─── Starfield ──────────────────────────────────────────────────────────────────
-
-function Star({
-  mousePos,
-  containerRef,
-}: {
-  mousePos: { x: number | null; y: number | null }
-  containerRef: React.RefObject<HTMLDivElement>
-}) {
-  const [pos] = useState({ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` })
-  const cfg = { stiffness: 100, damping: 15, mass: 0.1 }
-  const sx = useSpring(0, cfg)
-  const sy = useSpring(0, cfg)
-
-  useEffect(() => {
-    if (!containerRef.current || mousePos.x === null || mousePos.y === null) {
-      sx.set(0); sy.set(0); return
-    }
-    const r = containerRef.current.getBoundingClientRect()
-    const dx = mousePos.x - (r.left + (parseFloat(pos.left) / 100) * r.width)
-    const dy = mousePos.y - (r.top  + (parseFloat(pos.top)  / 100) * r.height)
-    const d = Math.sqrt(dx * dx + dy * dy)
-    if (d < 600) { const f = 1 - d / 600; sx.set(dx * f * 0.5); sy.set(dy * f * 0.5) }
-    else { sx.set(0); sy.set(0) }
-  }, [mousePos, pos, containerRef, sx, sy])
-
-  return (
-    <motion.div
-      className="absolute bg-[#3d3929] dark:bg-[#f0ede6] rounded-full"
-      style={{ top: pos.top, left: pos.left, width: `${1 + Math.random() * 2}px`, height: `${1 + Math.random() * 2}px`, x: sx, y: sy }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 1, 0] }}
-      transition={{ duration: 2 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 5 }}
-    />
-  )
-}
-
-function Starfield({ mousePos, containerRef }: { mousePos: { x: number | null; y: number | null }; containerRef: React.RefObject<HTMLDivElement> }) {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {Array.from({ length: 100 }).map((_, i) => (
-        <Star key={i} mousePos={mousePos} containerRef={containerRef} />
-      ))}
-    </div>
-  )
-}
 
 // ─── Toggle ─────────────────────────────────────────────────────────────────────
 
@@ -247,18 +200,10 @@ function Card({ plan, index }: { plan: Plan; index: number }) {
 
 export function PriceCalculatorSection() {
   const [isReady, setIsReady] = useState(true)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [mousePos, setMousePos] = useState<{ x: number | null; y: number | null }>({ x: null, y: null })
 
   return (
     <PricingCtx.Provider value={{ isReady, setIsReady }}>
-      <section
-        ref={containerRef}
-        onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-        onMouseLeave={() => setMousePos({ x: null, y: null })}
-        className="relative bg-[#faf9f5] dark:bg-[#1c1a15] px-6 sm:px-10 py-20 sm:py-28 overflow-hidden"
-      >
-        <Starfield mousePos={mousePos} containerRef={containerRef} />
+      <section className="relative px-6 sm:px-10 py-20 sm:py-28">
         <div className="relative z-10 max-w-6xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-4 text-center">
             / стоимость
