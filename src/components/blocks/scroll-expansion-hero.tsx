@@ -5,6 +5,7 @@ import {
   ReactNode,
 } from 'react'
 import { motion } from 'motion/react'
+import BoomerangVideoBg from '../../BoomerangVideoBg'
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image'
@@ -133,11 +134,7 @@ export function ScrollExpandMedia({
             transition={{ duration: 0.1 }}
           >
             {bgVideoSrc ? (
-              <video
-                src={bgVideoSrc}
-                autoPlay muted loop playsInline
-                className="w-full h-full object-cover object-center"
-              />
+              <BoomerangVideoBg src={bgVideoSrc} className="w-full h-full object-cover object-center" />
             ) : bgImageSrc ? (
               <img
                 src={bgImageSrc}

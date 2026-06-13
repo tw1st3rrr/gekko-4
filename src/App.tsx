@@ -23,7 +23,7 @@ import { FAQSection }             from '@/components/sections/FAQSection'
 
 const PIXELATOR = 'http://91.229.10.93:5000/'
 
-const VIDEO_URL = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4'
+const VIDEO_URL = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_131941_d136af49-e243-493a-be14-6ff3f24e09e6.mp4'
 
 const NAV_LINKS = [
   { label: 'О конструкторе', href: '#how-it-works' },
@@ -419,7 +419,7 @@ export default function App() {
       </nav>
 
       {/* ════════════════════════════════════════════════
-          HERO — scroll-expand video + How It Works
+          HERO — scroll-expand video + boomerang bg
       ════════════════════════════════════════════════ */}
       <ScrollExpandMedia
         mediaType="video"
