@@ -1,0 +1,10 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Webfonts
+   All faces are served from Google Fonts (Cyrillic + Latin subsets).
+   • Unbounded     — display / headings / wordmark
+   • Golos Text    — body (Cyrillic-first humanist sans)
+   • Tektur         — hero title (techy, condensed)
+   • Russo One / Rubik Mono One — alternate hero faces
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Unbounded:wght@500;600;700;800;900&family=Tektur:wght@600;700;800&family=Russo+One&family=Rubik+Mono+One&display=swap');

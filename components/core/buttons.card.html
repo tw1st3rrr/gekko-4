@@ -1,0 +1,29 @@
+<!-- @dsCard group="Components" viewport="700x210" subtitle="Primary · outline · light, three sizes" name="Buttons" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg-page);font-family:var(--gk-font-body)}
+  .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:var(--r-md);cursor:pointer;border:none;text-decoration:none;line-height:1.2}
+  .primary{background:var(--accent);color:#fff}
+  .outline{background:transparent;color:var(--text-strong);border:2px solid var(--border-strong)}
+  .light{background:#fff;color:var(--gk-ink);box-shadow:var(--shadow-md)}
+  .sm{padding:8px 16px;font-size:13px}
+  .md{padding:10px 20px;font-size:14px}
+  .lg{padding:14px 32px;font-size:15px;border-radius:var(--r-lg)}
+  .deep{background:var(--gk-ink);border-radius:var(--r-lg);padding:16px 18px;display:inline-flex;gap:14px}
+  .arr{font-size:13px}
+</style></head><body>
+  <div class="row">
+    <a class="btn primary md">Начать проект <span class="arr">→</span></a>
+    <a class="btn outline md">Все новости <span class="arr">→</span></a>
+  </div>
+  <div class="row">
+    <a class="btn primary sm">Small</a>
+    <a class="btn primary md">Medium</a>
+    <a class="btn primary lg">Large CTA</a>
+  </div>
+  <div class="deep">
+    <a class="btn light md">Стандартный набор <span class="arr">→</span></a>
+    <a class="btn md" style="background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff">Индивидуальный проект</a>
+  </div>
+</body></html>

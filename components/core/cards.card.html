@@ -1,0 +1,17 @@
+<!-- @dsCard group="Components" viewport="700x300" subtitle="Default · interactive · popular" name="Cards" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg-page);font-family:var(--gk-font-body);display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
+  .card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm)}
+  .card.lift{box-shadow:var(--shadow-xl);transform:translateY(-6px)}
+  .card.pop{border:2px solid var(--accent);box-shadow:var(--shadow-xl);position:relative}
+  .num{width:28px;height:28px;border-radius:var(--r-full);background:var(--accent);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+  h3{font-family:var(--gk-font-display);font-weight:800;font-size:17px;color:var(--text-strong);margin:14px 0 6px}
+  p{font-size:13px;color:var(--text-body);line-height:1.6;margin:0}
+  .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:5px 12px;border-radius:var(--r-full);white-space:nowrap}
+  .lbl{font-size:11px;color:var(--text-muted);margin-top:10px}
+</style></head><body>
+  <div><div class="card"><span class="num">1</span><h3>Загрузи фото</h3><p>Любое фото — портрет, питомец, сцена.</p></div><div class="lbl">default</div></div>
+  <div><div class="card lift"><span class="num">2</span><h3>Настрой</h3><p>Формат, стиль, превью — пока не понравится.</p></div><div class="lbl">interactive · hover</div></div>
+  <div><div class="card pop"><span class="badge">★ Популярный выбор</span><h3>M · А4</h3><p>7 000 деталей, выбор цветности.</p></div><div class="lbl">popular</div></div>
+</body></html>

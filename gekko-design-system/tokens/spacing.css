@@ -1,0 +1,37 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Spacing, radius & layout tokens
+   Generous, airy rhythm. Sections breathe (80–112px vertical). Corners are
+   soft and consistently rounded — the brand never uses sharp-cornered cards.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Spacing scale (4px base) ──────────────────────────────── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-14:  56px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-28:  112px;
+
+  /* ── Section / layout ──────────────────────────────────────── */
+  --container-max: 72rem;        /* max-w-6xl — page content width            */
+  --section-y:     80px;         /* default vertical section padding          */
+  --section-y-lg:  112px;        /* roomy feature sections                    */
+  --section-x:     24px;         /* mobile gutter                             */
+  --section-x-lg:  40px;         /* desktop gutter                            */
+  --nav-offset:    76px;         /* fixed nav scroll offset                   */
+
+  /* ── Radius ────────────────────────────────────────────────── */
+  --r-sm:    8px;    /* chips, small controls (rounded-lg)                    */
+  --r-md:    12px;   /* buttons, inputs (rounded-xl)                          */
+  --r-lg:    16px;   /* cards (rounded-2xl) — the default card radius         */
+  --r-xl:    24px;   /* media frames, big panels (rounded-3xl)               */
+  --r-full:  9999px; /* pills, toggles, avatars                              */
+}

@@ -1,0 +1,52 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Typography tokens
+   Three roles: a geometric DISPLAY face (Unbounded) for headings & the brand
+   wordmark, a humanist BODY face (Golos Text — Cyrillic-first) for everything
+   readable, and a techy HERO face (Tektur) reserved for the giant hero title.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Families ──────────────────────────────────────────────── */
+  --gk-font-display: 'Unbounded', sans-serif;
+  --gk-font-body:    'Golos Text', sans-serif;
+  --gk-font-hero:    'Tektur', sans-serif;
+  /* alternate hero faces toggled via Tweaks on the live site */
+  --gk-font-hero-russo: 'Russo One', sans-serif;
+  --gk-font-hero-rubik: 'Rubik Mono One', sans-serif;
+
+  /* default body font applied to <body> */
+  --font-base: var(--gk-font-body);
+
+  /* ── Weights ───────────────────────────────────────────────── */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;   /* the workhorse heading weight                       */
+  --fw-black:    900;   /* prices, oversized numerals                         */
+
+  /* ── Type scale (px) ───────────────────────────────────────── */
+  --fs-label:   12px;   /* eyebrow / section label (uppercase, tracked)       */
+  --fs-xs:      12px;
+  --fs-sm:      14px;
+  --fs-base:    16px;
+  --fs-lg:      18px;
+  --fs-xl:      20px;
+  --fs-2xl:     24px;
+  --fs-3xl:     30px;
+  --fs-4xl:     36px;
+  --fs-5xl:     48px;
+  --fs-6xl:     60px;
+
+  /* ── Line heights ──────────────────────────────────────────── */
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+
+  /* ── Tracking ──────────────────────────────────────────────── */
+  --ls-tight:   -0.02em;   /* headings                                        */
+  --ls-normal:  0;
+  --ls-label:   0.22em;     /* uppercase eyebrows                             */
+  --ls-wide:    0.12em;
+}

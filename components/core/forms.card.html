@@ -1,0 +1,20 @@
+<!-- @dsCard group="Components" viewport="700x260" subtitle="Inputs, textarea, chips, toggle" name="Forms" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg-surface);font-family:var(--gk-font-body);display:flex;flex-direction:column;gap:14px;max-width:560px}
+  .field{width:100%;box-sizing:border-box;font-size:14px;padding:10px 12px;border-radius:var(--r-md);background:transparent;border:1px solid var(--border-subtle);color:var(--text-strong);font-family:inherit}
+  .field.focus{border-color:transparent;box-shadow:0 0 0 2px var(--gk-ink)}
+  .row{display:flex;gap:10px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:12px;font-weight:500;padding:8px 12px;border-radius:var(--r-sm);background:transparent;border:1px solid var(--border-subtle);color:var(--text-body);cursor:pointer}
+  .chip.on{background:var(--bg-surface-alt);color:var(--text-strong);border-color:var(--text-strong)}
+  .toggle{display:inline-flex;background:var(--gk-gray-100);border-radius:var(--r-full);padding:4px;width:fit-content}
+  .toggle span{padding:8px 22px;border-radius:var(--r-full);font-size:13px;font-weight:600}
+  .toggle .act{background:var(--accent);color:#fff}
+  .toggle .idle{color:var(--text-muted)}
+</style></head><body>
+  <div class="row"><input class="field" placeholder="Имя"><input class="field focus" placeholder="Email" value=""></div>
+  <textarea class="field" rows="2" placeholder="Что хотите создать или улучшить..."></textarea>
+  <div class="chips"><span class="chip on">Стандартный набор</span><span class="chip">Индивидуальный проект</span><span class="chip on">3D-фигуры</span><span class="chip">Оптовый заказ</span><span class="chip">Партнёрство</span></div>
+  <div class="toggle"><span class="act">Готовый набор</span><span class="idle">Индивидуальный проект</span></div>
+</body></html>

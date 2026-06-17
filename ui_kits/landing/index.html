@@ -1,0 +1,141 @@
+<!-- @dsCard group="Landing" viewport="1280x900" subtitle="Marketing landing — nav, hero, steps, pricing, footer" -->
+<!-- @startingPoint section="Landing" subtitle="ГЕККО marketing landing page" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ГЕККО АРТ — Landing</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;background:var(--bg-page);color:var(--text-strong);font-family:var(--gk-font-body)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+  a{text-decoration:none;color:inherit}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;padding:16px 40px}
+  .navbar{display:flex;align-items:center;gap:28px;background:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:10px 12px 10px 18px}
+  .brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--gk-font-display);font-weight:800;font-size:16px;letter-spacing:-.02em}
+  .pmk{display:flex;flex-direction:column;gap:2px}
+  .pmk span{display:flex;gap:2px}.pmk i{width:6px;height:6px;background:var(--accent);display:block}.pmk i.h{opacity:.5}
+  .navlinks{display:flex;gap:24px;font-size:14px;font-weight:500;flex:1}
+  .navlinks a{color:var(--text-body)}
+  .navcta{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .icbtn{width:36px;height:36px;border-radius:var(--r-md);background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:var(--r-md);padding:10px 20px;font-size:14px;cursor:pointer;border:none}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-light{background:#fff;color:var(--gk-ink);box-shadow:var(--shadow-md)}
+  .btn-outline{background:transparent;border:2px solid var(--border-strong);color:var(--text-strong)}
+
+  /* hero */
+  .hero{position:relative;height:560px;border-radius:var(--r-xl);overflow:hidden;margin:8px 40px 0;
+    background:linear-gradient(160deg,#0D3A35 0%,#276152 55%,#0D3A35 100%);display:flex;align-items:flex-end}
+  .hero .frame{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:380px;height:360px;border-radius:var(--r-lg);
+    background:repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 14px,rgba(255,255,255,.02) 14px 28px),#0a2724;box-shadow:var(--shadow-2xl);display:flex;align-items:center;justify-content:center}
+  .hero .frame span{font-family:'Courier New',monospace;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.1em}
+  .hero h1{position:absolute;top:64px;left:0;right:0;text-align:center;font-family:var(--gk-font-hero);font-size:72px;color:#fff;margin:0;letter-spacing:-.02em}
+  .herobar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;width:100%;padding:44px;gap:24px}
+  .herobar .eyebrow{color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;margin:0 0 12px}
+  .herobar h2{font-family:var(--gk-font-hero);font-size:24px;color:#fff;margin:0 0 10px;max-width:360px;line-height:1.25}
+  .herobar p{color:rgba(255,255,255,.5);font-size:14px;max-width:280px;margin:0}
+  .heroacts{display:flex;flex-direction:column;gap:12px;flex:none}
+
+  /* sections */
+  section{padding:88px 0}
+  .label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--accent);margin:0 0 16px}
+  .label .dots{display:flex;gap:3px}.label .dots i{width:6px;height:6px;background:var(--accent);display:block}
+  h2.title{font-family:var(--gk-font-display);font-weight:800;font-size:40px;letter-spacing:-.02em;margin:0 0 40px}
+  .steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .step{position:relative;height:240px;border-radius:var(--r-lg);border:1px solid var(--border-subtle);background:var(--bg-surface);padding:26px;overflow:hidden}
+  .step .num{width:28px;height:28px;border-radius:var(--r-full);background:var(--accent);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .step h3{font-family:var(--gk-font-display);font-weight:800;font-size:18px;margin:14px 0 8px}
+  .step p{font-size:13px;color:var(--text-body);line-height:1.6;max-width:70%;margin:0}
+  .step .ph{position:absolute;bottom:-18px;right:-18px;width:150px;height:150px;border-radius:var(--r-md);
+    background:repeating-linear-gradient(135deg,var(--gk-sage) 0 10px,#c4c9bf 10px 20px);opacity:.5}
+
+  /* pricing */
+  .pricing{background:var(--bg-surface-alt);text-align:center}
+  .toggle{display:inline-flex;background:var(--gk-gray-100);border-radius:var(--r-full);padding:4px;margin:0 auto 44px}
+  .toggle span{padding:10px 28px;border-radius:var(--r-full);font-size:14px;font-weight:600}
+  .toggle .act{background:var(--accent);color:#fff}.toggle .idle{color:var(--text-muted)}
+  .plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;align-items:start;text-align:center}
+  .plan{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-lg);padding:32px}
+  .plan.pop{border:2px solid var(--accent);box-shadow:var(--shadow-xl);transform:translateY(-18px);position:relative}
+  .plan.pop .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:var(--r-full);white-space:nowrap}
+  .plan h3{font-family:var(--gk-font-display);font-weight:700;font-size:20px;margin:0}
+  .plan .sub{font-size:13px;color:var(--text-muted);margin:4px 0 22px}
+  .plan .price{font-family:var(--gk-font-display);font-weight:900;font-size:42px;letter-spacing:-.02em}
+  .plan ul{list-style:none;padding:0;margin:26px 0;text-align:left;display:flex;flex-direction:column;gap:12px}
+  .plan li{font-size:13px;color:var(--text-body);display:flex;gap:10px}
+  .plan li::before{content:"✓";color:var(--accent);font-weight:800}
+
+  /* footer */
+  footer{background:var(--bg-page);border-top:1px solid var(--border-subtle);padding:56px 0 32px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+  footer h4{font-family:var(--gk-font-display);font-weight:700;font-size:16px;margin:0 0 16px}
+  footer a,footer p{display:block;color:var(--text-muted);font-size:14px;margin:0 0 8px}
+  .copy{margin-top:40px;padding-top:24px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;color:var(--text-faint);font-size:13px}
+</style></head>
+<body>
+  <nav><div class="navbar">
+    <a class="brand"><span class="pmk"><span><i></i><i class="h"></i></span><span><i class="h"></i><i></i></span></span>ГЕККО</a>
+    <div class="navlinks"><a>О конструкторе</a><a>Каталог</a><a>Пикселизатор</a><a>Отзывы</a><a>Контакты</a></div>
+    <div class="navcta"><span class="icbtn">☾</span><a class="btn btn-primary">Начать проект</a></div>
+  </div></nav>
+
+  <div class="hero">
+    <h1>ГЕККО АРТ</h1>
+    <div class="frame"><span>[ hero video ]</span></div>
+    <div class="herobar">
+      <div>
+        <p class="eyebrow">Пиксельный конструктор</p>
+        <h2>Конструктор с почти безграничными возможностями</h2>
+        <p>Загрузи любое фото — получи уникальный пиксельный набор для сборки.</p>
+      </div>
+      <div class="heroacts">
+        <a class="btn btn-light">Стандартный набор →</a>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff">Индивидуальный проект →</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <p class="label"><span class="dots"><i></i><i style="opacity:.6"></i><i style="opacity:.3"></i></span>как это работает</p>
+    <h2 class="title">Три шага до вашей картины</h2>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Загрузи фото</h3><p>Нажми «Начать проект» и загрузи любое фото — портрет, питомец, сцена.</p><div class="ph"></div></div>
+      <div class="step"><span class="num">2</span><h3>Настрой пикселизатор</h3><p>Выбери формат, стиль, посмотри превью — редактируй пока не понравится.</p><div class="ph"></div></div>
+      <div class="step"><span class="num">3</span><h3>Получи и собери</h3><p>Набор с кирпичиками, схемой и платами придёт почтой. Собери или подари.</p><div class="ph"></div></div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="wrap">
+      <p class="label" style="justify-content:center"><span class="dots"><i></i><i style="opacity:.6"></i><i style="opacity:.3"></i></span>стоимость</p>
+      <h2 class="title" style="margin-bottom:8px">Выбери свой формат</h2>
+      <p style="color:var(--text-body);max-width:520px;margin:0 auto 36px">Все наборы включают базовые платы, кирпичики, схему сборки и доставку по России.</p>
+      <div class="toggle"><span class="act">Готовый набор</span><span class="idle">Индивидуальный проект</span></div>
+      <div class="plans">
+        <div class="plan"><h3>S · А5</h3><p class="sub">3 500 деталей</p><div class="price">2 490 ₽</div>
+          <ul><li>Базовые платы</li><li>Кирпичики + 5% запас</li><li>Схема сборки</li><li>Доставка по России</li></ul>
+          <a class="btn btn-outline" style="width:100%;box-sizing:border-box;justify-content:center">Заказать набор S</a></div>
+        <div class="plan pop"><span class="badge">★ Популярный выбор</span><h3>M · А4</h3><p class="sub">7 000 деталей</p><div class="price">4 990 ₽</div>
+          <ul><li>Базовые платы</li><li>Кирпичики + 5% запас</li><li>Схема сборки</li><li>Доставка по России</li><li>Выбор цветности</li></ul>
+          <a class="btn btn-primary" style="width:100%;box-sizing:border-box;justify-content:center">Заказать набор M</a></div>
+        <div class="plan"><h3>L · А3</h3><p class="sub">14 000 деталей</p><div class="price">8 990 ₽</div>
+          <ul><li>Базовые платы</li><li>Кирпичики + 5% запас</li><li>Схема сборки</li><li>Выбор цветности</li><li>Приоритетная поддержка</li></ul>
+          <a class="btn btn-outline" style="width:100%;box-sizing:border-box;justify-content:center">Заказать набор L</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" style="margin-bottom:16px"><span class="pmk"><span><i></i><i class="h"></i></span><span><i class="h"></i><i></i></span></span>ГЕККО</a>
+        <p>Пиксельный конструктор нового поколения. Загрузи фото — собери картину.</p>
+      </div>
+      <div><h4>Навигация</h4><a>Главная</a><a>Каталог наборов</a><a>Пикселизатор</a><a>Доставка и оплата</a></div>
+      <div><h4>Контакты</h4><p>Россия, Москва</p><p>8-499-165-04-23</p><p>oooalextoys@mail.ru</p></div>
+    </div>
+    <div class="copy"><span>© 2026 ГЕККО ТОЙС. Все права защищены.</span><span>Политика конфиденциальности</span></div>
+  </div></footer>
+</body></html>

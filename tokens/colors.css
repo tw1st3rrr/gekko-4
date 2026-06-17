@@ -1,0 +1,77 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Color tokens
+   A warm "paper + deep pine" palette. Backgrounds are warm off-white; the
+   brand sits on deep teal-green pine tones. One green accent carries CTAs,
+   links and the pixel motif. Dark mode inverts onto near-black pine.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Brand greens ───────────────────────────────────────────── */
+  --gk-green:        #276152;   /* primary accent — CTAs, links, motif        */
+  --gk-green-soft:   #3E7D6B;   /* lighter accent variant                     */
+  --gk-ink:          #0D3A35;   /* deep pine — primary text & dark surfaces   */
+  --gk-pine-600:     #0B302B;   /* gift / deep section background             */
+  --gk-pine-700:     #0A2724;   /* deep section background (dark mode)        */
+  --gk-pine-900:     #07201C;   /* darkest — dark-mode page background        */
+
+  /* ── Neutrals (warm) ────────────────────────────────────────── */
+  --gk-paper:        #FBF6F0;   /* page background — warm off-white           */
+  --gk-cream:        #ECEFE9;   /* light text & surfaces on dark              */
+  --gk-sage:         #B1B7AB;   /* muted sage — dividers / quiet detail       */
+  --gk-white:        #FFFFFF;
+
+  /* greyscale used for borders / muted copy on light surfaces */
+  --gk-gray-50:      #F9FAFB;
+  --gk-gray-100:     #F3F4F6;
+  --gk-gray-200:     #E5E7EB;
+  --gk-gray-400:     #9CA3AF;
+  --gk-gray-500:     #6B7280;
+  --gk-gray-700:     #374151;
+  --gk-gray-900:     #111827;
+
+  /* ── Functional accents (used sparingly: contact tiles, ratings) ── */
+  --gk-amber:        #F59E0B;   /* star ratings                               */
+  --gk-success:      #16A34A;   /* "sent!" confirmations                      */
+  --gk-info:         #2563EB;   /* email tile                                 */
+  --gk-warn:         #F97316;   /* hours tile                                 */
+
+  /* ── Semantic aliases (light theme) ─────────────────────────── */
+  --bg-page:         var(--gk-paper);
+  --bg-surface:      var(--gk-white);
+  --bg-surface-alt:  var(--gk-gray-50);
+  --bg-deep:         var(--gk-ink);     /* inverted feature sections          */
+
+  --text-strong:     var(--gk-ink);     /* headings, key copy                 */
+  --text-body:       color-mix(in oklab, var(--gk-ink) 70%, transparent);
+  --text-muted:      color-mix(in oklab, var(--gk-ink) 50%, transparent);
+  --text-faint:      color-mix(in oklab, var(--gk-ink) 40%, transparent);
+  --text-on-deep:    var(--gk-cream);
+
+  --accent:          var(--gk-green);
+  --accent-hover:    color-mix(in oklab, var(--gk-green), black 14%);
+  --accent-contrast: var(--gk-white);
+
+  --border-subtle:   var(--gk-gray-200);
+  --border-strong:   color-mix(in oklab, var(--gk-ink) 30%, transparent);
+  --ring:            var(--gk-green);
+}
+
+/* ── Dark theme ──────────────────────────────────────────────── */
+.dark {
+  --bg-page:         var(--gk-pine-900);
+  --bg-surface:      var(--gk-ink);
+  --bg-surface-alt:  var(--gk-pine-700);
+  --bg-deep:         var(--gk-pine-600);
+
+  --text-strong:     var(--gk-cream);
+  --text-body:       color-mix(in oklab, var(--gk-cream) 70%, transparent);
+  --text-muted:      color-mix(in oklab, var(--gk-cream) 55%, transparent);
+  --text-faint:      color-mix(in oklab, var(--gk-cream) 40%, transparent);
+  --text-on-deep:    var(--gk-cream);
+
+  --accent:          var(--gk-green-soft);
+  --accent-hover:    color-mix(in oklab, var(--gk-green-soft), white 8%);
+
+  --border-subtle:   color-mix(in oklab, var(--gk-cream) 12%, transparent);
+  --border-strong:   color-mix(in oklab, var(--gk-cream) 24%, transparent);
+}

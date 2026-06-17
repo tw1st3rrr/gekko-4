@@ -1,0 +1,40 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Effects: shadows, blur, motion
+   Shadows are soft and neutral (no colored glows). Cards lift on hover. The
+   floating nav and pricing cards use frosted glass (translucent + blur).
+   Motion is calm: smooth eases, gentle lifts, the occasional springy toggle.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Elevation ─────────────────────────────────────────────── */
+  --shadow-sm:  0 1px 2px rgba(13,58,53,0.06), 0 1px 3px rgba(13,58,53,0.08);
+  --shadow-md:  0 4px 12px rgba(13,58,53,0.08);
+  --shadow-lg:  0 10px 24px rgba(13,58,53,0.10);
+  --shadow-xl:  0 20px 40px rgba(13,58,53,0.14);
+  --shadow-2xl: 0 30px 60px rgba(13,58,53,0.18);
+  --shadow-media: 0 0 60px rgba(0,0,0,0.40);   /* hero / carousel media frame */
+
+  /* ── Glass (floating nav, pricing cards) ───────────────────── */
+  --glass-bg:        rgba(255,255,255,0.70);
+  --glass-bg-dark:   rgba(7,32,28,0.80);
+  --glass-blur:      12px;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --border-w:        1px;
+  --border-w-strong: 2px;    /* outline buttons, popular pricing card        */
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(.2,.6,.2,1);      /* scroll reveals, lifts      */
+  --ease-spring: cubic-bezier(.3,1.2,.3,1);     /* pricing toggle pill        */
+  --ease-char:   cubic-bezier(.25,.46,.45,.94); /* staggered char hover       */
+
+  --dur-fast:   200ms;
+  --dur-base:   300ms;
+  --dur-slow:   700ms;
+
+  --lift:       -6px;        /* card hover translateY (-translate-y-1.5)      */
+  --lift-sm:    -4px;
+}
+
+@keyframes gk-slideProgress { from { width: 0% } to { width: 100% } }
+@keyframes gk-twinkle { 0%, 100% { opacity: 0 } 50% { opacity: 1 } }

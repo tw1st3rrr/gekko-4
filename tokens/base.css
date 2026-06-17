@@ -1,0 +1,58 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   ГЕККО — Base layer & brand utilities
+   Minimal element defaults + the handful of utility classes the brand reuses
+   (accent helpers, the pixel-cluster motif, glass surfaces, reveal motion).
+   ─────────────────────────────────────────────────────────────────────────── */
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-base);
+  background: var(--bg-page);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gk-display { font-family: var(--gk-font-display); letter-spacing: var(--ls-tight); }
+.gk-hero    { font-family: var(--gk-font-hero); }
+
+/* ── Accent helpers ─────────────────────────────────────────── */
+.gk-text-accent   { color: var(--accent); }
+.gk-bg-accent     { background-color: var(--accent); }
+.gk-border-accent { border-color: var(--accent); }
+
+/* ── Eyebrow / section label ────────────────────────────────── */
+.gk-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: var(--fs-label); font-weight: var(--fw-bold);
+  text-transform: uppercase; letter-spacing: var(--ls-label);
+  color: var(--accent);
+}
+
+/* ── Pixel-cluster motif ────────────────────────────────────── */
+/* The signature brand mark: a 2×2 (logo) or fading 3-dot (label) of squares. */
+.gk-pixels { display: inline-flex; gap: 3px; }
+.gk-pixels > i {
+  width: 6px; height: 6px; background: var(--accent); display: block;
+}
+.gk-pixels > i:nth-child(2) { opacity: .6; }
+.gk-pixels > i:nth-child(3) { opacity: .3; }
+
+/* ── Glass surface (floating nav, frosted cards) ────────────── */
+.gk-glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+}
+.dark .gk-glass { background: var(--glass-bg-dark); }
+
+/* ── Scroll reveal ──────────────────────────────────────────── */
+[data-reveal] { transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+[data-reveal].pre-reveal { opacity: 0; transform: translateY(26px); }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].pre-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+.gk-no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.gk-no-scrollbar::-webkit-scrollbar { display: none; }
